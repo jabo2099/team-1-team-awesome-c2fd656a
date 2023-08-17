@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using levelup;
+using levelup.cli;
 using System.Drawing;
 
 namespace levelup
@@ -23,10 +23,16 @@ namespace levelup
         }
 
         [Test]
+        public void IsStartingPositionSet()
+        {
+#pragma warning disable CS8602 // Rethrow to preserve stack details
+            Assert.AreEqual(0,testObj.GetStartingPosition().XCoordinates);
+            Assert.AreEqual(0,testObj.GetStartingPosition().YCoordinates);
+        }
+        [Test]
         public void IsPositionValid()
         {
         #pragma warning disable CS8602 // Rethrow to preserve stack details
-
         var p = new Point(0,0);
 
             Assert.True(testObj.isPositionValid(p));
