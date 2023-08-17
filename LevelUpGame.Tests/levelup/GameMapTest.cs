@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using levelup;
+using System.Drawing;
 
 namespace levelup
 {
@@ -20,5 +21,16 @@ namespace levelup
 #pragma warning disable CS8602 // Rethrow to preserve stack details
             Assert.AreEqual(100,testObj.numPositions);
         }
+
+        [Test]
+        public void IsPositionValid()
+        {
+        #pragma warning disable CS8602 // Rethrow to preserve stack details
+
+        var p = new Point(0,0);
+
+            Assert.True(testObj.isPositionValid(p));
+        }
+
     }
 }
