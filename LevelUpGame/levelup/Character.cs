@@ -1,10 +1,11 @@
+using levelup.cli;
 namespace levelup;
 public class Character
 {
     static string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
     private string Name;
     private GameMap Map;
-    private Position Position;
+    private Position position;
     public Character(){
         Name = DEFAULT_CHARACTER_NAME;
     }
@@ -31,7 +32,7 @@ public class Character
     }
 
     public void SetPosition(Position position){
-        this.Position = new Position(position.xCoordinate,position.yCoordinate);
+        this.position = new Position(position.XCoordinates,position.YCoordinates);
     }
 
     
