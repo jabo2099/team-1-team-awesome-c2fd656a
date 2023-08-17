@@ -16,26 +16,30 @@ namespace levelup
         }
 
         [Test]
-        public void IsNumPositionsInitializedIs()
+        public void IsNumPositionsInitialized()
         {
-#pragma warning disable CS8602 // Rethrow to preserve stack details
             Assert.AreEqual(100,testObj.numPositions);
         }
 
         [Test]
         public void IsStartingPositionSet()
         {
-#pragma warning disable CS8602 // Rethrow to preserve stack details
             Assert.AreEqual(0,testObj.GetStartingPosition().XCoordinates);
             Assert.AreEqual(0,testObj.GetStartingPosition().YCoordinates);
         }
+
         [Test]
         public void IsPositionValid()
         {
-        #pragma warning disable CS8602 // Rethrow to preserve stack details
-        var p = new Point(0,0);
-
+            var p = new Point(0,0);
             Assert.True(testObj.isPositionValid(p));
+        }
+
+        [Test]
+        public void ArePositionsInitialized()
+        {
+            // TODO: Fix this later
+            Assert.IsNull(testObj.GetPositions());
         }
 
     }

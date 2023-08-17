@@ -5,7 +5,7 @@ namespace levelup
 {
     public class GameMap {
         public int numPositions=100;
-        private Point [,] positions = new Point[10,10];
+        private Position [,] positions; //TODO
 
         private Position startingPosition;
 
@@ -19,9 +19,16 @@ namespace levelup
         public bool isPositionValid (Point positionCoordinates) {
             return true;
         }
-    public Position GetStartingPosition(){
-        return startingPosition;
-    }
+    
+        public Position GetStartingPosition(){
+            return startingPosition;
+        }
+
+        public Position[][] GetPositions(){
+            //TODO
+            //return new Position[2,2];
+            return null;
+        }
        
 
 
