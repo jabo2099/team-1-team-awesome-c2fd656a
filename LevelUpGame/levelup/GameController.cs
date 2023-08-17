@@ -5,6 +5,7 @@ namespace levelup
     public class GameController
     {
         public readonly string DEFAULT_CHARACTER_NAME = "Character";
+        Character _character;
 
         public record struct GameStatus(
             // TODO: Add other status data
@@ -48,6 +49,17 @@ namespace levelup
         {
             // TODO: Implement startGame - Should probably create positions and put the character on one
             // TODO: Should also update the game status?
+
+            if(string.IsNullOrEmpty( this.status.characterName))
+            {
+            _character = new Character();
+            }
+            else
+            {
+                _character = new Character(this.status.characterName);
+            }
+
+
         }
 
         public GameStatus GetStatus()
