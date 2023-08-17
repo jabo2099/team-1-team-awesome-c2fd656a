@@ -45,10 +45,23 @@ namespace levelup
         [Test]
         public void calculatePositionWithValidMove()
         {
-            var result = testObj.calculatePosition(new Position(0,1) , GameController.DIRECTION.NORTH);
+            var start = new Position(1,1);
 
-            Assert.AreEqual(0, result.XCoordinates);
-            Assert.AreEqual(2, result.YCoordinates);
+            var north = testObj.calculatePosition(start , GameController.DIRECTION.NORTH);
+            Assert.AreEqual(1, north.XCoordinates);
+            Assert.AreEqual(2, north.YCoordinates);
+
+            var south = testObj.calculatePosition(start , GameController.DIRECTION.SOUTH);
+            Assert.AreEqual(1, south.XCoordinates);
+            Assert.AreEqual(0, south.YCoordinates);
+
+            var east = testObj.calculatePosition(start , GameController.DIRECTION.EAST);
+            Assert.AreEqual(2, east.XCoordinates);
+            Assert.AreEqual(1, east.YCoordinates);
+
+            var west = testObj.calculatePosition(start , GameController.DIRECTION.WEST);
+            Assert.AreEqual(0, west.XCoordinates);
+            Assert.AreEqual(1, west.YCoordinates);
         }
 
     }

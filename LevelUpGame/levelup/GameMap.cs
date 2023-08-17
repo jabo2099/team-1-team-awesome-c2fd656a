@@ -39,13 +39,13 @@ namespace levelup
                 result = new Position(startingPosition.XCoordinates, startingPosition.YCoordinates + 1); 
                 break;
             case GameController.DIRECTION.SOUTH:
-                // code block
+                result = new Position(startingPosition.XCoordinates, startingPosition.YCoordinates - 1);
                 break;
                 case GameController.DIRECTION.EAST:
-                // code block
+                result = new Position(startingPosition.XCoordinates + 1, startingPosition.YCoordinates);
                 break; 
                 case GameController.DIRECTION.WEST:
-                // code block
+                result = new Position(startingPosition.XCoordinates - 1, startingPosition.YCoordinates);
                 break;
             default:
                 // code block
