@@ -28,12 +28,7 @@ namespace levelup
             Assert.AreEqual(0,testObj.GetStartingPosition().YCoordinates);
         }
 
-        [Test]
-        public void IsPositionValid()
-        {
-            var p = new Point(0,0);
-            Assert.True(testObj.isPositionValid(p));
-        }
+        
 
         [Test]
         public void ArePositionsInitialized()
@@ -62,6 +57,29 @@ namespace levelup
             var west = testObj.calculatePosition(start , GameController.DIRECTION.WEST);
             Assert.AreEqual(0, west.XCoordinates);
             Assert.AreEqual(1, west.YCoordinates);
+        }
+
+[Test]
+        public void calculatePositionWithInvalidMove()
+        {
+            var minPos = new Position(0,0);  // Min South or Min West
+            var maxPos = new Position(9,9);  //Max North or Max East
+
+            var bounceNorth = testObj.calculatePosition(maxPos , GameController.DIRECTION.NORTH);
+            Assert.AreEqual(9, bounceNorth.XCoordinates);
+            Assert.AreEqual(9, bounceNorth.YCoordinates);
+
+            var bounceSouth = testObj.calculatePosition(minPos , GameController.DIRECTION.SOUTH);
+            Assert.AreEqual(0, bounceSouth.XCoordinates);
+            Assert.AreEqual(0, bounceSouth.YCoordinates);
+
+            var bounceWest = testObj.calculatePosition(minPos , GameController.DIRECTION.WEST);
+            Assert.AreEqual(0, bounceWest.XCoordinates);
+            Assert.AreEqual(0, bounceWest.YCoordinates);
+
+            var bounceEast = testObj.calculatePosition(maxPos , GameController.DIRECTION.EAST);
+            Assert.AreEqual(9, bounceEast.XCoordinates);
+            Assert.AreEqual(9, bounceEast.YCoordinates);
         }
 
     }
