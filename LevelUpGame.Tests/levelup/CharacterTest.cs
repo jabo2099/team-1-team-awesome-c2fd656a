@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using levelup.cli;
+using levelup;
 
 namespace levelup
 {
@@ -22,17 +22,23 @@ namespace levelup
         }
 
         [Test]
-        public void checkDefaultCharacterName()
+        public void CheckDefaultCharacterName()
         {
             Assert.AreEqual(testObj.GetName(),DEFAULT_CHARACTER_NAME);
         }
 
         [Test]
-        public void checkCharacterName()
+        public void CheckCharacterName()
         {
             Character? testObj = new Character("NOT DEFAULT");
             Assert.AreEqual(testObj.GetName(),"NOT DEFAULT");
             Assert.AreNotEqual(testObj.GetName(),DEFAULT_CHARACTER_NAME);
+        }
+
+        [Test]
+        public void CheckEnterMap(GameMap map)
+        {
+            
         }
     }
 }
