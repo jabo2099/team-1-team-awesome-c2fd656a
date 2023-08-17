@@ -18,6 +18,12 @@ namespace levelup {
         public void TestPositionHasXCoordinates() {
             Assert.AreEqual(XCOORDINATES,_position.XCoordinates);
         }
+
+        [Test]
+        public void TestPositionHasYCoordinates() {
+            Assert.AreEqual(YCOORDINATES,_position.YCoordinates);
+        }
+        
     
     }
 

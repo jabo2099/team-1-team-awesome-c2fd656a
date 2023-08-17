@@ -8,7 +8,9 @@ namespace levelup.cli {
         private readonly Point _coordinates;
 
         public int XCoordinates => _xCoordinates;
+        public int YCoordinates => _yCoordinates;
         public Point Coordinates => _coordinates;
+        
 
         public Position(){
 
