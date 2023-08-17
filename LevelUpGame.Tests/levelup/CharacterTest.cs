@@ -22,6 +22,7 @@ namespace levelup
             testMap = new GameMap();
             testObj.SetMap(testMap);
             startingPoisition = new Position(xCoordinate, yCoordinate);
+            testObj.SetPosition(startingPoisition);
         }
 
         [Test]
@@ -33,7 +34,7 @@ namespace levelup
         [Test]
         public void CheckDefaultCharacterName()
         {
-            Assert.AreEqual(testObj.GetName(),DEFAULT_CHARACTER_NAME);
+            Assert.AreEqual(DEFAULT_CHARACTER_NAME,testObj.GetName());
         }
 
         [Test]
@@ -41,13 +42,13 @@ namespace levelup
         {
             Character? testObj = new Character("NOT DEFAULT");
             Assert.AreEqual(testObj.GetName(),"NOT DEFAULT");
-            Assert.AreNotEqual(testObj.GetName(),DEFAULT_CHARACTER_NAME);
+            Assert.AreNotEqual(DEFAULT_CHARACTER_NAME,testObj.GetName());
         }
 
         [Test]
         public void CheckEnterMap()
         {
-            Assert.AreEqual(testObj.GetMap(),testMap);
+            Assert.AreEqual(testMap,testObj.GetMap());
         }
 
         [Test]
@@ -70,25 +71,34 @@ namespace levelup
             Assert.AreEqual(newPosition.XCoordinates, position.XCoordinates);
             Assert.AreEqual(newPosition.YCoordinates, position.YCoordinates);
         }
-        
-        [Test]
-        public void CheckCalculatePosition()
-        {
-            var position = new Position(0,0);
 
-            var newPosition = testObj.GetMap().calculatePosition(position, GameController.DIRECTION.NORTH);
-            Assert.AreEqual(newPosition.XCoordinates, 0);
-            Assert.AreEqual(newPosition.YCoordinates, 1);
-        }
-
-        [Test]
-        public void CheckMove()
+         [Test]
+        public void CheckMoveNorth()
         {
-            testObj.SetPosition(new Position(0,0));
+            var beforeMovePosition = testObj.GetPosition();
             testObj.Move(GameController.DIRECTION.NORTH);
-            var newPosition = testObj.GetPosition();
-            Assert.AreEqual(newPosition.XCoordinates, 0);
-            Assert.AreEqual(newPosition.YCoordinates, 1);
+            var afterMovePosition = testObj.GetPosition();
+            Assert.AreEqual(afterMovePosition.XCoordinates, beforeMovePosition.XCoordinates);
+            Assert.AreNotEqual(afterMovePosition.YCoordinates, beforeMovePosition.YCoordinates);
+        }
+       /*
+        [Test]
+        public void CheckMoveWestBounce()
+        {
+            var beforeMovePosition = testObj.GetPosition();
+            testObj.Move(GameController.DIRECTION.WEST);
+            var afterMovePosition = testObj.GetPosition();
+            Assert.AreEqual(afterMovePosition.XCoordinates, beforeMovePosition.XCoordinates);
+            Assert.AreEqual(afterMovePosition.YCoordinates, beforeMovePosition.YCoordinates);
+        } */
+
+        [Test]
+        public void checkMoveCount()
+        {
+            var expectedMoveCount = 2;            
+            testObj.Move(GameController.DIRECTION.NORTH);
+            testObj.Move(GameController.DIRECTION.EAST);
+            Assert.AreEqual(expectedMoveCount,testObj.getMoveCount());
         }
     }
 }

@@ -6,6 +6,7 @@ public class Character
     private string Name;
     private GameMap Map;
     private Position position;
+    private int moveCount = 0; 
 
     public Character(){
         Name = DEFAULT_CHARACTER_NAME;
@@ -41,6 +42,11 @@ public class Character
 
     public void Move(GameController.DIRECTION direction){
         SetPosition(this.Map.calculatePosition(this.position, direction));
+        this.moveCount++;
     }
+
+    public int getMoveCount(){
+        return this.moveCount;
+    } 
     
 }
