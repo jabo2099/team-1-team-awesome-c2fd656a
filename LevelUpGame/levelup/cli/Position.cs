@@ -3,8 +3,8 @@ using System.Drawing;
 namespace levelup.cli {
     public class Position {
 
-        private readonly int _xCoordinates;
-        private readonly int _yCoordinates;
+        private readonly int _xCoordinates = 0;
+        private readonly int _yCoordinates = 0;
         private readonly Point _coordinates;
 
         public int XCoordinates => _xCoordinates;
