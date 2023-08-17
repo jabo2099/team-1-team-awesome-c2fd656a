@@ -17,4 +17,4 @@ Scenario Outline: Move in a direction
 
         | startingPositionX | startingPositionY | direction | startingMoveCount | endingPositionX | endingPositionY | endingMoveCount |
         | 0                 | 0                 | NORTH     | 10                | 0               | 1               | 11              |
-        | 0 | 0 | SOUTH | 32 | 0 | 0 | 33 |
+        | 0                 | 0                 | SOUTH     | 32                | 0               | 0               | 33              |
