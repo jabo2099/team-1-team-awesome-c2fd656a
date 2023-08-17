@@ -42,5 +42,14 @@ namespace levelup
             Assert.IsNull(testObj.GetPositions());
         }
 
+        [Test]
+        public void calculatePositionWithValidMove()
+        {
+            var result = testObj.calculatePosition(new Position(0,1) , GameController.DIRECTION.NORTH);
+
+            Assert.AreEqual(0, result.XCoordinates);
+            Assert.AreEqual(2, result.YCoordinates);
+        }
+
     }
 }

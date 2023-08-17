@@ -30,6 +30,30 @@ namespace levelup
             return null;
         }
        
+       public Position calculatePosition (Position startingPosition, GameController.DIRECTION direction) {
+            var result = startingPosition;
+
+            switch(direction) 
+            {
+            case GameController.DIRECTION.NORTH:
+                result = new Position(startingPosition.XCoordinates, startingPosition.YCoordinates + 1); 
+                break;
+            case GameController.DIRECTION.SOUTH:
+                // code block
+                break;
+                case GameController.DIRECTION.EAST:
+                // code block
+                break; 
+                case GameController.DIRECTION.WEST:
+                // code block
+                break;
+            default:
+                // code block
+                break;
+            }
+
+            return result;
+       }
 
 
     }
