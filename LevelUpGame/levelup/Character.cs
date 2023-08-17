@@ -4,6 +4,7 @@ public class Character
     static string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
     private string Name;
     private GameMap Map;
+    private Position Position;
     public Character(){
         Name = DEFAULT_CHARACTER_NAME;
     }
@@ -18,6 +19,7 @@ public class Character
 
     public void EnterMap(GameMap map){
         SetMap(map);
+        SetPosition(Map.GetStartingPosition());
     }
 
     public void SetMap(GameMap map){
@@ -28,4 +30,9 @@ public class Character
         return this.Map;
     }
 
+    public void SetPosition(Position position){
+        this.Position = new Position(position.xCoordinate,position.yCoordinate);
+    }
+
+    
 }
