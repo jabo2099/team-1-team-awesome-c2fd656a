@@ -17,8 +17,15 @@ public class Character
     }
 
     public void EnterMap(GameMap map){
-        Map = map;
-        var currentPosition = GetPosition();
+        SetMap(map);
+    }
+
+    public void SetMap(GameMap map){
+        this.Map = map;
+    }
+    
+    public GameMap GetMap(){
+        return this.Map;
     }
 
 }

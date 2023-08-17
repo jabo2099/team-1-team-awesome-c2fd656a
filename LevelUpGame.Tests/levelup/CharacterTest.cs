@@ -8,11 +8,13 @@ namespace levelup
     {
         static string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
         private Character? testObj;
+        private GameMap? testMap;
 
         [SetUp]
         public void SetUp()
         {
             testObj = new Character();
+            testMap = new GameMap();
         }
 
         [Test]
@@ -36,9 +38,10 @@ namespace levelup
         }
 
         [Test]
-        public void CheckEnterMap(GameMap map)
+        public void CheckEnterMap()
         {
-            
+            testObj.SetMap(testMap);
+            Assert.AreEqual(testObj.GetMap(),testMap);
         }
     }
 }
