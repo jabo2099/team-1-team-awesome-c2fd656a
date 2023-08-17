@@ -6,6 +6,7 @@ public class Character
     private string Name;
     private GameMap Map;
     private Position position;
+
     public Character(){
         Name = DEFAULT_CHARACTER_NAME;
     }
@@ -34,6 +35,12 @@ public class Character
     public void SetPosition(Position position){
         this.position = new Position(position.XCoordinates,position.YCoordinates);
     }
+    public Position GetPosition(){
+        return this.position;
+    }
 
+    public void Move(GameController.DIRECTION direction){
+    
+    }
     
 }
