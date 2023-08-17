@@ -71,6 +71,10 @@ namespace levelup
             }
        }
 
+       public int getTotalPositions () {
+         return MAX_X*MAX_Y;
+       }
+
 
     }
 }

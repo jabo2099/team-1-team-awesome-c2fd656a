@@ -59,7 +59,7 @@ namespace levelup
             Assert.AreEqual(1, west.YCoordinates);
         }
 
-[Test]
+        [Test]
         public void calculatePositionWithInvalidMove()
         {
             var minPos = new Position(0,0);  // Min South or Min West
@@ -80,6 +80,11 @@ namespace levelup
             var bounceEast = testObj.calculatePosition(maxPos , GameController.DIRECTION.EAST);
             Assert.AreEqual(9, bounceEast.XCoordinates);
             Assert.AreEqual(9, bounceEast.YCoordinates);
+        }
+
+        [Test]
+        public void getTotalPositions() {
+            Assert.AreEqual(100,testObj.getTotalPositions());
         }
 
     }
