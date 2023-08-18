@@ -8,14 +8,14 @@ namespace levelup
         const int MAX_X = 10;
         const int MAX_Y = 10;
 
-        private Position startingPosition;
+        private Position _startingPosition;
         
         public GameMap(){
-            startingPosition = new Position();
+            _startingPosition = new Position();
         }
 
         public GameMap(Position startingPos){
-            startingPosition = new Position(startingPos.XCoordinates, startingPos.YCoordinates);
+            _startingPosition = new Position(startingPos.XCoordinates, startingPos.YCoordinates);
         }
 
         private bool IsPositionValid (Position positionCoordinates) {
@@ -30,7 +30,7 @@ namespace levelup
         }
 
         public Position GetStartingPosition(){
-            return startingPosition;
+            return _startingPosition;
         }
 
         public Position[][] GetPositions(){
