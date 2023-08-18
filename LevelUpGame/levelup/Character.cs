@@ -3,51 +3,51 @@ namespace levelup;
 public class Character
 {
     static string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
-    private string Name;
-    private GameMap Map;
-    private Position position;
-    private int moveCount = 0; 
+    private string _name;
+    private GameMap _map;
+    private Position _position;
+    private int _moveCount = 0; 
 
     public Character(){
-        Name = DEFAULT_CHARACTER_NAME;
+        _name = DEFAULT_CHARACTER_NAME;
     }
 
     public Character(string name){
         
-        Name = name;
+        _name = name;
     }
 
     public string GetName(){
-        return Name;
+        return _name;
     }
 
     public void EnterMap(GameMap map){
         SetMap(map);
-        SetPosition(Map.GetStartingPosition());
+        SetPosition(_map.GetStartingPosition());
     }
 
     public void SetMap(GameMap map){
-        this.Map = map;
+        this._map = map;
     }
     
     public GameMap GetMap(){
-        return this.Map;
+        return this._map;
     }
 
     public void SetPosition(Position position){
-        this.position = new Position(position.XCoordinates,position.YCoordinates);
+        this._position = new Position(position.XCoordinates,position.YCoordinates);
     }
     public Position GetPosition(){
-        return this.position;
+        return this._position;
     }
 
     public void Move(GameController.DIRECTION direction){
-        SetPosition(this.Map.calculatePosition(this.position, direction));
-        this.moveCount++;
+        SetPosition(this._map.calculatePosition(this._position, direction));
+        this._moveCount++;
     }
 
     public int getMoveCount(){
-        return this.moveCount;
+        return this._moveCount;
     } 
     
 }
