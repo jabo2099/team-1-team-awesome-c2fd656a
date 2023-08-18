@@ -71,6 +71,8 @@ namespace levelup
         {
             //TODO: Implement move - should call something on another class
             //TODO: Should probably also update the game status
+            _character.move(directionToMove);
+            SetCurrentMoveCount(_character.GetMoveCount());
         }
 
         public void SetCharacterPosition(Point coordinates)
@@ -81,6 +83,8 @@ namespace levelup
         public void SetCurrentMoveCount(int moveCount)
         {
             //TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
+            status.moveCount = moveCount;
+
         }
 
         public int GetTotalPositions()
