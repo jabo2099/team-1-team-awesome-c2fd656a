@@ -10,64 +10,64 @@ namespace levelup
         static string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
         static int xCoordinate = 0;
         static int yCoordinate = 0;
-        private Character? testObj;
-        private GameMap? testMap;
-        private Position? startingPoisition;
+        private Character? _testObj;
+        private GameMap? _testMap;
+        private Position? _startingPoisition;
 
 
         [SetUp]
         public void SetUp()
         {
-            testObj = new Character();
-            testMap = new GameMap();
-            testObj.SetMap(testMap);
-            startingPoisition = new Position(xCoordinate, yCoordinate);
-            testObj.SetPosition(startingPoisition);
+            _testObj = new Character();
+            _testMap = new GameMap();
+            _testObj.SetMap(_testMap);
+            _startingPoisition = new Position(xCoordinate, yCoordinate);
+            _testObj.SetPosition(_startingPoisition);
         }
 
         [Test]
         public void IsNameAvailable()
         {
-            Assert.IsNotNull(testObj.GetName());
+            Assert.IsNotNull(_testObj.GetName());
         }
 
         [Test]
         public void CheckDefaultCharacterName()
         {
-            Assert.AreEqual(DEFAULT_CHARACTER_NAME,testObj.GetName());
+            Assert.AreEqual(DEFAULT_CHARACTER_NAME,_testObj.GetName());
         }
 
         [Test]
         public void CheckCharacterName()
         {
-            Character? testObj = new Character("NOT DEFAULT");
-            Assert.AreEqual(testObj.GetName(),"NOT DEFAULT");
-            Assert.AreNotEqual(DEFAULT_CHARACTER_NAME,testObj.GetName());
+            Character? _testObj = new Character("NOT DEFAULT");
+            Assert.AreEqual(_testObj.GetName(),"NOT DEFAULT");
+            Assert.AreNotEqual(DEFAULT_CHARACTER_NAME,_testObj.GetName());
         }
 
         [Test]
         public void CheckEnterMap()
         {
-            Assert.AreEqual(testMap,testObj.GetMap());
+            Assert.AreEqual(_testMap,_testObj.GetMap());
         }
 
         [Test]
         public void CheckStartingPosition()
         {
-            var xCoordinate = testObj.GetMap().GetStartingPosition().XCoordinates;
-            var yCoordinate = testObj.GetMap().GetStartingPosition().YCoordinates;
-            Assert.AreEqual(xCoordinate, startingPoisition.XCoordinates);
-            Assert.AreEqual(yCoordinate, startingPoisition.YCoordinates);
+            var xCoordinate = _testObj.GetMap().GetStartingPosition().XCoordinates;
+            var yCoordinate = _testObj.GetMap().GetStartingPosition().YCoordinates;
+            Assert.AreEqual(xCoordinate, _startingPoisition.XCoordinates);
+            Assert.AreEqual(yCoordinate, _startingPoisition.YCoordinates);
         }
 
         [Test]
         public void CheckSetPosition()
         {
-            var position = testObj.GetPosition();
+            var position = _testObj.GetPosition();
             var newPosition = new Position(1,1);
 
-            testObj.SetPosition(newPosition);
-            position = testObj.GetPosition();
+            _testObj.SetPosition(newPosition);
+            position = _testObj.GetPosition();
             Assert.AreEqual(newPosition.XCoordinates, position.XCoordinates);
             Assert.AreEqual(newPosition.YCoordinates, position.YCoordinates);
         }
@@ -75,9 +75,9 @@ namespace levelup
          [Test]
         public void CheckMoveNorth()
         {
-            var beforeMovePosition = testObj.GetPosition();
-            testObj.Move(GameController.DIRECTION.NORTH);
-            var afterMovePosition = testObj.GetPosition();
+            var beforeMovePosition = _testObj.GetPosition();
+            _testObj.Move(GameController.DIRECTION.NORTH);
+            var afterMovePosition = _testObj.GetPosition();
             Assert.AreEqual(afterMovePosition.XCoordinates, beforeMovePosition.XCoordinates);
             Assert.AreNotEqual(afterMovePosition.YCoordinates, beforeMovePosition.YCoordinates);
         }
@@ -96,9 +96,9 @@ namespace levelup
         public void checkMoveCount()
         {
             var expectedMoveCount = 2;            
-            testObj.Move(GameController.DIRECTION.NORTH);
-            testObj.Move(GameController.DIRECTION.EAST);
-            Assert.AreEqual(expectedMoveCount,testObj.getMoveCount());
+            _testObj.Move(GameController.DIRECTION.NORTH);
+            _testObj.Move(GameController.DIRECTION.EAST);
+            Assert.AreEqual(expectedMoveCount,_testObj.getMoveCount());
         }
     }
 }
