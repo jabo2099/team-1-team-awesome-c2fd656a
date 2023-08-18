@@ -20,10 +20,5 @@ namespace levelup.cli {
             _yCoordinates = yCoordinates;
             _coordinates = new Point(xCoordinates, yCoordinates);
         }
-
-
-
-        
-
     }
 }
