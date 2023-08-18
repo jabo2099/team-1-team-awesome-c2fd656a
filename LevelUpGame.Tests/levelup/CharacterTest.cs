@@ -47,10 +47,10 @@ namespace levelup
         [Test]
         public void CheckStartingPosition()
         {
-            var xCoordinate = _testObj.GetMap().GetStartingPosition().XCoordinates;
-            var yCoordinate = _testObj.GetMap().GetStartingPosition().YCoordinates;
-            Assert.AreEqual(xCoordinate, _startingPoisition.XCoordinates);
-            Assert.AreEqual(yCoordinate, _startingPoisition.YCoordinates);
+            var xCoordinate = _testObj.GetMap().GetStartingPosition().Coordinates.X;
+            var yCoordinate = _testObj.GetMap().GetStartingPosition().Coordinates.Y;
+            Assert.AreEqual(xCoordinate, _startingPoisition.Coordinates.X);
+            Assert.AreEqual(yCoordinate, _startingPoisition.Coordinates.Y);
         }
 
         [Test]
@@ -61,8 +61,8 @@ namespace levelup
 
             _testObj.SetPosition(newPosition);
             position = _testObj.GetPosition();
-            Assert.AreEqual(newPosition.XCoordinates, position.XCoordinates);
-            Assert.AreEqual(newPosition.YCoordinates, position.YCoordinates);
+            Assert.AreEqual(newPosition.Coordinates.X, position.Coordinates.X);
+            Assert.AreEqual(newPosition.Coordinates.Y, position.Coordinates.Y);
         }
 
          [Test]
@@ -71,19 +71,19 @@ namespace levelup
             var beforeMovePosition = _testObj.GetPosition();
             _testObj.Move(GameController.DIRECTION.NORTH);
             var afterMovePosition = _testObj.GetPosition();
-            Assert.AreEqual(afterMovePosition.XCoordinates, beforeMovePosition.XCoordinates);
-            Assert.AreNotEqual(afterMovePosition.YCoordinates, beforeMovePosition.YCoordinates);
+            Assert.AreEqual(afterMovePosition.Coordinates.X, beforeMovePosition.Coordinates.X);
+            Assert.AreNotEqual(afterMovePosition.Coordinates.Y, beforeMovePosition.Coordinates.Y);
         }
-       /*
+       
         [Test]
         public void CheckMoveWestBounce()
         {
-            var beforeMovePosition = testObj.GetPosition();
-            testObj.Move(GameController.DIRECTION.WEST);
-            var afterMovePosition = testObj.GetPosition();
-            Assert.AreEqual(afterMovePosition.XCoordinates, beforeMovePosition.XCoordinates);
-            Assert.AreEqual(afterMovePosition.YCoordinates, beforeMovePosition.YCoordinates);
-        } */
+            var beforeMovePosition = _testObj.GetPosition();
+            _testObj.Move(GameController.DIRECTION.WEST);
+            var afterMovePosition = _testObj.GetPosition();
+            Assert.AreEqual(afterMovePosition.Coordinates.X, beforeMovePosition.Coordinates.X);
+            Assert.AreEqual(afterMovePosition.Coordinates.Y, beforeMovePosition.Coordinates.Y);
+        } 
 
         [Test]
         public void checkMoveCount()

@@ -1,4 +1,6 @@
 using levelup.cli;
+using System.Drawing;
+
 namespace levelup;
 public class Character
 {
@@ -33,7 +35,7 @@ public class Character
     }
 
     public void SetPosition(Position position){
-        this._position = new Position(position.XCoordinates,position.YCoordinates);
+        this._position = new Position(position.Coordinates.X,position.Coordinates.Y);
     }
     public Position GetPosition(){
         return this._position;
