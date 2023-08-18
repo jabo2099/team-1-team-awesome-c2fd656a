@@ -93,7 +93,7 @@ namespace levelup
         public int GetTotalPositions()
         {
             //TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be testable
-            return -10;
+            return _character.GetMap().GetTotalPositions();
         }
 
 
