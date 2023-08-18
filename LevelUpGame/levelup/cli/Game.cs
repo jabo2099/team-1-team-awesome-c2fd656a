@@ -97,11 +97,114 @@ class Game
     {
         Console.WriteLine("-------------------------------------------------");
         Console.WriteLine("LEVEL UP GAMES");
+        Console.WriteLine("");
+        DrawWelcomeImage();
+        Console.WriteLine("");
         Console.WriteLine("-------------------------------------------------");
         Console.WriteLine("Use your arrow keys to select a command below");
         Console.WriteLine("Create a character with a custom name.");
         Console.WriteLine("Then, start the game to start your adventure.");
         Console.WriteLine("-------------------------------------------------");
+    }
+
+    private static void DrawWelcomeImage() {
+
+        //source: https://asciiart.cc/view/12177
+
+        string[] image = {
+            "                                                             /===-_---~~~~~~~~~------____",
+            "                                               |===-~___                _,-'",
+            "                 -==\\                         `//~\\   ~~~~`---.___.-~~",
+            "             ______-==|                         | |  \\           _-~`",
+            "       __--~~~  ,-/-==\\                        | |   \\        ,'",
+            "    _-~       /'    |  \\                      / /      \\      /",
+            "  .'        /       |   \\                   /' /        \\   /'",
+            " /  ____  /         |    \\`.__/-~~ ~ \\ _ _/'  /          \\/",
+            "/-'~    ~~~~~---__  |     ~-/~         ( )   /'        _--~`",
+            "                  \\_|      /        _)   ;  ),   __--~~",
+            "                    '~~--_/      _-~/-  / \\   '-~ \\",
+            "                   {\\__--_/}    / \\>- ) <__\\      \\/",
+            "                   /'   (_/  _-~  | |__>--<__|      |",
+            "                  |0  0 _/) )-~     | |__>--<__|     |",
+            "                  / /~ ,_/       / /__>---<__/      |",
+            "                 o o _//        /-~_>---<__-~      /",
+            "                 (^(~          /~_>---<__-      _-~",
+            "                ,/|           /__>--<__/     _-~",
+            "             ,//('(          |__>--<__|     /                  .----_",
+            "            ( ( '))          |__>--<__|    |                 /' _---_~\\/",
+            "        `-)) )) (           |__>--<__|    |               /'  /     ~\\`\\/",
+            "        ,/,'//( (             \\__>--<__\\    \\            /'  //        ||",
+            "      ,( ( ((, ))              ~-__>--<_~-_  ~--____---~' _/'/        /'",
+            "    `~/  )` ) ,/|                 ~-_~>--<_/-__       __-~ _/",
+            "  ._-~//( )/ )) `                    ~~-'_/_/ /~~~~~~~__--~",
+            "   ;'( ')/ ,)(                              ~~~~~~~~~~",
+            "  ' ') '( (/",
+            "    '   '  `"
+        };
+
+
+        foreach (string line in image)
+        {
+            Console.WriteLine(line);
+        }
+    }
+
+    static void DrawTrophy() {
+        string[] trophy = {
+            "   ___________   ",
+            "  '._==_==_=_.'  ",
+            "  .-\\:      /-.  ",
+            " | (|:.     |) | ",
+            "  '-|:.     |-'  ",
+            "    \\::.    /   ",
+            "     '::. .'     ",
+            "       ) (       ",
+            "     _.' '._     ",
+            "    '-------'    "
+        };
+
+        foreach (string line in trophy)
+        {
+            Console.WriteLine(line);
+        }
+    }
+
+    static void DrawSkull() {
+        //Source: https://asciiart.cc/view/10673
+        
+        string[] face = {
+            "                        (",
+            "            .            )        )",
+            "                     (  (|              .",
+            "                 )   )\\/ ( ( (",
+            "         *  (   ((  /     ))\\))  (  )    )",
+            "       (     \\   )\\(          |  ))( )  (|",
+            "       >)     ))/   |          )/  \\\\((  ) \\/",
+            "      (     (      .        -.     V )/   )(    (",
+            "        \\   /     .   \\            .       ))   ))",
+            "          )(      (  | |   )            .    (  /",
+            "         )(    ,'))     \\ /          \\( `.    )",
+            "         (\\>  ,'/__      ))            __`.  /",
+            "        ( \\   | /  ___   ( \\/     ___   \\ | ( (",
+            "         \\.)  |/  /   \\__      __/   \\   \\|  ))",
+            "        .  \\.|>  \\      | __ |      /   <|  /",
+            "             )/    \\____/ :..: \\____/     \\ <",
+            "      )   \\ (|__  .      / ;: \\          __| )  (",
+            "     ((    )\\)  ~--_     --  --      _--~    /  ))",
+            "      \\    (    |  ||               ||  |   (  /",
+            "            \\   |  ||_             _||  |  /",
+            "              > :  |  ~V+-I_I_I-+V~  |  : (.",
+            "             (  \\:  T\\   _     _   /T  : ./",
+            "              \\  :    T^T T-+-T T^T    ;<",
+            "               \\..`_       -+-       _'  )",
+            "                  . `--=.._____..=--'. ./",
+            "   "
+        };
+
+        foreach (string line in face)
+        {
+            Console.WriteLine(line);
+        }
     }
 
     static void CreateCharacter()
@@ -156,12 +259,22 @@ class Game
     static void PrintSummary()
     {
         Console.WriteLine("Exiting the mysterious land!");
+        int moveCount = 0;
+
         foreach (GameController.GameStatus status in gameHistory)
         {
             // TODO: Override toString on game status to print pretty
             Console.WriteLine(status);
+            moveCount += status.moveCount;
         }
         // TODO: Print anything else you committed to in your mockup
+        if (moveCount > 0) {
+            DrawTrophy();
+        }
+        else {
+            DrawSkull();
+        }
+
 
     }
 
