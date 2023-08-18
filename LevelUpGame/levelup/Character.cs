@@ -2,18 +2,16 @@ using levelup.cli;
 namespace levelup;
 public class Character
 {
-    static string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
+    
     private string _name;
     private GameMap _map;
     private Position _position;
     private int _moveCount = 0; 
 
     public Character(){
-        _name = DEFAULT_CHARACTER_NAME;
     }
 
     public Character(string name){
-        
         _name = name;
     }
 

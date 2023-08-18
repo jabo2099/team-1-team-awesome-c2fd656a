@@ -26,23 +26,16 @@ namespace levelup
         }
 
         [Test]
-        public void IsNameAvailable()
+        public void IsNameNotAvailable()
         {
-            Assert.IsNotNull(_testObj.GetName());
+            Assert.IsNull(_testObj.GetName());
         }
-
-        [Test]
-        public void CheckDefaultCharacterName()
-        {
-            Assert.AreEqual(DEFAULT_CHARACTER_NAME,_testObj.GetName());
-        }
-
+        
         [Test]
         public void CheckCharacterName()
         {
-            Character? _testObj = new Character("NOT DEFAULT");
-            Assert.AreEqual(_testObj.GetName(),"NOT DEFAULT");
-            Assert.AreNotEqual(DEFAULT_CHARACTER_NAME,_testObj.GetName());
+            Character? testObj = new Character("NOT DEFAULT");
+            Assert.AreEqual("NOT DEFAULT",testObj.GetName());            
         }
 
         [Test]
