@@ -42,7 +42,7 @@ public class Character
     }
 
     public void Move(GameController.DIRECTION direction){
-        SetPosition(this._map.calculatePosition(this._position, direction));
+        SetPosition(this._map.CalculatePosition(this._position, direction));
         this._moveCount++;
     }
 

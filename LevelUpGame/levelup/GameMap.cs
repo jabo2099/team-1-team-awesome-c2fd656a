@@ -1,4 +1,3 @@
-using System.Drawing;
 using levelup.cli;
 
 namespace levelup
@@ -10,8 +9,16 @@ namespace levelup
         const int MAX_Y = 10;
 
         private Position startingPosition;
+        
+        public GameMap(){
+            startingPosition = new Position();
+        }
 
-        private bool isPositionValid (Position positionCoordinates) {
+        public GameMap(Position startingPos){
+            startingPosition = new Position(startingPos.XCoordinates, startingPos.YCoordinates);
+        }
+
+        private bool IsPositionValid (Position positionCoordinates) {
             bool result = false;
 
             if (positionCoordinates.XCoordinates < MAX_X && positionCoordinates.XCoordinates >= 0 
@@ -19,17 +26,9 @@ namespace levelup
                 {
                     result = true;
                 }
-
             return result;
         }
 
-        public GameMap(){
-            startingPosition = new Position();
-        }
-        public GameMap(Position startingPos){
-            startingPosition = new Position(startingPos.XCoordinates, startingPos.YCoordinates);
-        }
-    
         public Position GetStartingPosition(){
             return startingPosition;
         }
@@ -40,41 +39,37 @@ namespace levelup
             return null;
         }
        
-       public Position calculatePosition (Position currentPosition, GameController.DIRECTION direction) {
+       public Position CalculatePosition (Position currentPosition, GameController.DIRECTION direction) {
             var result = currentPosition;
 
             switch(direction) 
             {
-            case GameController.DIRECTION.NORTH:
-                result = new Position(currentPosition.XCoordinates, currentPosition.YCoordinates + 1); 
-                break;
-            case GameController.DIRECTION.SOUTH:
-                result = new Position(currentPosition.XCoordinates, currentPosition.YCoordinates - 1);
-                break;
+                case GameController.DIRECTION.NORTH:
+                    result = new Position(currentPosition.XCoordinates, currentPosition.YCoordinates + 1); 
+                    break;
+                case GameController.DIRECTION.SOUTH:
+                    result = new Position(currentPosition.XCoordinates, currentPosition.YCoordinates - 1);
+                    break;
                 case GameController.DIRECTION.EAST:
-                result = new Position(currentPosition.XCoordinates + 1, currentPosition.YCoordinates);
-                break; 
+                    result = new Position(currentPosition.XCoordinates + 1, currentPosition.YCoordinates);
+                    break; 
                 case GameController.DIRECTION.WEST:
-                result = new Position(currentPosition.XCoordinates - 1, currentPosition.YCoordinates);
-                break;
-            default:
-                // code block
-                break;
+                    result = new Position(currentPosition.XCoordinates - 1, currentPosition.YCoordinates);
+                    break;
+                default:
+                    // code block
+                    break;
             }
 
-            if (isPositionValid(result)) {
+            if (IsPositionValid(result)) {
                 return result;
-            } 
-            else
-            {
+            }else{
                 return currentPosition;
             }
        }
 
-       public int getTotalPositions () {
+       public int GetTotalPositions () {
          return MAX_X*MAX_Y;
        }
-
-
     }
 }

@@ -42,49 +42,49 @@ namespace levelup
         {
             var start = new Position(1,1);
 
-            var north = testObj.calculatePosition(start , GameController.DIRECTION.NORTH);
+            var north = testObj.CalculatePosition(start , GameController.DIRECTION.NORTH);
             Assert.AreEqual(1, north.XCoordinates);
             Assert.AreEqual(2, north.YCoordinates);
 
-            var south = testObj.calculatePosition(start , GameController.DIRECTION.SOUTH);
+            var south = testObj.CalculatePosition(start , GameController.DIRECTION.SOUTH);
             Assert.AreEqual(1, south.XCoordinates);
             Assert.AreEqual(0, south.YCoordinates);
 
-            var east = testObj.calculatePosition(start , GameController.DIRECTION.EAST);
+            var east = testObj.CalculatePosition(start , GameController.DIRECTION.EAST);
             Assert.AreEqual(2, east.XCoordinates);
             Assert.AreEqual(1, east.YCoordinates);
 
-            var west = testObj.calculatePosition(start , GameController.DIRECTION.WEST);
+            var west = testObj.CalculatePosition(start , GameController.DIRECTION.WEST);
             Assert.AreEqual(0, west.XCoordinates);
             Assert.AreEqual(1, west.YCoordinates);
         }
 
         [Test]
-        public void calculatePositionWithInvalidMove()
+        public void CalculatePositionWithInvalidMove()
         {
             var minPos = new Position(0,0);  // Min South or Min West
             var maxPos = new Position(9,9);  //Max North or Max East
 
-            var bounceNorth = testObj.calculatePosition(maxPos , GameController.DIRECTION.NORTH);
+            var bounceNorth = testObj.CalculatePosition(maxPos , GameController.DIRECTION.NORTH);
             Assert.AreEqual(9, bounceNorth.XCoordinates);
             Assert.AreEqual(9, bounceNorth.YCoordinates);
 
-            var bounceSouth = testObj.calculatePosition(minPos , GameController.DIRECTION.SOUTH);
+            var bounceSouth = testObj.CalculatePosition(minPos , GameController.DIRECTION.SOUTH);
             Assert.AreEqual(0, bounceSouth.XCoordinates);
             Assert.AreEqual(0, bounceSouth.YCoordinates);
 
-            var bounceWest = testObj.calculatePosition(minPos , GameController.DIRECTION.WEST);
+            var bounceWest = testObj.CalculatePosition(minPos , GameController.DIRECTION.WEST);
             Assert.AreEqual(0, bounceWest.XCoordinates);
             Assert.AreEqual(0, bounceWest.YCoordinates);
 
-            var bounceEast = testObj.calculatePosition(maxPos , GameController.DIRECTION.EAST);
+            var bounceEast = testObj.CalculatePosition(maxPos , GameController.DIRECTION.EAST);
             Assert.AreEqual(9, bounceEast.XCoordinates);
             Assert.AreEqual(9, bounceEast.YCoordinates);
         }
 
         [Test]
-        public void getTotalPositions() {
-            Assert.AreEqual(100,testObj.getTotalPositions());
+        public void GetTotalPositions() {
+            Assert.AreEqual(100,testObj.GetTotalPositions());
         }
 
     }
