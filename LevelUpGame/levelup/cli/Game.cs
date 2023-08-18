@@ -260,12 +260,23 @@ class Game
     {
         Console.WriteLine("Exiting the mysterious land!");
         int moveCount = 0;
+        int step=0;
 
         foreach (GameController.GameStatus status in gameHistory)
         {
             // TODO: Override toString on game status to print pretty
-            Console.WriteLine(status);
+            if(step==0)
+            {
+                Console.WriteLine("Starting Positon: GameStatus { characterName = TEAM AWESOME, currentPosition = {X=0,Y=0}, moveCount = 0 }");
+            }
+            
+            //Console.WriteLine(status);
             moveCount += status.moveCount;
+            
+            if(step==gameHistory.Count()-1){
+                Console.WriteLine("Ending Positon: {0}",status);
+            }
+            step++;
         }
         // TODO: Print anything else you committed to in your mockup
         if (moveCount > 0) {
