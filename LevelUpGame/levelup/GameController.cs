@@ -58,7 +58,8 @@ namespace levelup
             {
                 _character = new Character(this.status.characterName);
             }
-
+            
+            _character.EnterMap(new GameMap());
 
         }
 
