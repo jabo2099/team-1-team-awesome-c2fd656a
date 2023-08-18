@@ -46,7 +46,7 @@ public class Character
         this._moveCount++;
     }
 
-    public int getMoveCount(){
+    public int GetMoveCount(){
         return this._moveCount;
     } 
     

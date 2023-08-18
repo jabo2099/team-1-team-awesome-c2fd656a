@@ -91,7 +91,7 @@ namespace levelup
             var expectedMoveCount = 2;            
             _testObj.Move(GameController.DIRECTION.NORTH);
             _testObj.Move(GameController.DIRECTION.EAST);
-            Assert.AreEqual(expectedMoveCount,_testObj.getMoveCount());
+            Assert.AreEqual(expectedMoveCount,_testObj.GetMoveCount());
         }
     }
 }

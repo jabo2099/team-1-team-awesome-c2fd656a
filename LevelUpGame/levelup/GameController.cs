@@ -71,7 +71,7 @@ namespace levelup
         {
             //TODO: Implement move - should call something on another class
             //TODO: Should probably also update the game status
-            _character.move(directionToMove);
+            _character.Move(directionToMove);
             SetCurrentMoveCount(_character.GetMoveCount());
         }
 
