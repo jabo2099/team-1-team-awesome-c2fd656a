@@ -16,12 +16,9 @@ namespace levelup
             _positions = new Position[MAX_X,MAX_Y];
         }
 
-        public GameMap(Position startingPos, int? maxX, int? maxY){
-            int sizeX = maxX ?? MAX_X;
-            int sizeY = maxY ?? MAX_Y;
-            
+        public GameMap(Position startingPos, int maxX = MAX_X, int maxY = MAX_Y){       
             _startingPosition = new Position(startingPos.Coordinates.X, startingPos.Coordinates.Y);
-            _positions = new Position[sizeX,sizeY];
+            _positions = new Position[maxX,maxY];
         }
 
         private bool isPositionValid (Point positionCoordinates) {
