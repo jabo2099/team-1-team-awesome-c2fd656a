@@ -28,13 +28,12 @@ namespace levelup
             Assert.AreEqual(0,testObj.GetStartingPosition().Coordinates.Y);
         }
 
-        
-
         [Test]
         public void ArePositionsInitialized()
         {
-            // TODO: Fix this later
-            Assert.IsNull(testObj.GetPositions());
+            Assert.IsNotNull(testObj.GetPositions());
+            Assert.AreEqual(testObj.GetPositions().GetLength(0), 10);
+            Assert.AreEqual(testObj.GetPositions().GetLength(1), 10);
         }
 
         [Test]

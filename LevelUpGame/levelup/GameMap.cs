@@ -5,7 +5,7 @@ namespace levelup
 {
     public class GameMap {
         public int numPositions=100;
-        //private Position [,] positions; //TODO
+        private Position [,] _positions; //TODO
         const int MAX_X = 10;
         const int MAX_Y = 10;
 
@@ -13,10 +13,15 @@ namespace levelup
         
         public GameMap(){
             _startingPosition = new Position();
+            _positions = new Position[MAX_X,MAX_Y];
         }
 
-        public GameMap(Position startingPos){
+        public GameMap(Position startingPos, int? maxX, int? maxY){
+            int sizeX = maxX ?? MAX_X;
+            int sizeY = maxY ?? MAX_Y;
+            
             _startingPosition = new Position(startingPos.Coordinates.X, startingPos.Coordinates.Y);
+            _positions = new Position[sizeX,sizeY];
         }
 
         private bool isPositionValid (Point positionCoordinates) {
@@ -34,10 +39,9 @@ namespace levelup
             return _startingPosition;
         }
 
-        public Position[][] GetPositions(){
-            //TODO
-            //return new Position[2,2];
-            return null;
+        public Position[,] GetPositions(){
+            return _positions;
+;
         }
        
        public Position CalculatePosition (Position currentPosition, GameController.DIRECTION direction) {
