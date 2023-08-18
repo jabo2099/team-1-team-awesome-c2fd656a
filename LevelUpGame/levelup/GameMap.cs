@@ -4,8 +4,8 @@ using System.Drawing;
 namespace levelup
 {
     public class GameMap {
-        public int numPositions=100;
-        private Position [,] _positions; //TODO
+        private int numPositions= MAX_X * MAX_Y;
+        private Position [,] _positions;
         const int MAX_X = 10;
         const int MAX_Y = 10;
 
@@ -72,7 +72,7 @@ namespace levelup
        }
 
        public int GetTotalPositions () {
-         return MAX_X*MAX_Y;
+         return GetPositions().GetLength(0) * GetPositions().GetLength(1);
        }
     }
 }

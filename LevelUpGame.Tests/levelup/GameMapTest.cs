@@ -18,7 +18,7 @@ namespace levelup
         [Test]
         public void IsNumPositionsInitialized()
         {
-            Assert.AreEqual(100,testObj.numPositions);
+            Assert.AreEqual(100,testObj.GetTotalPositions());
         }
 
         [Test]
