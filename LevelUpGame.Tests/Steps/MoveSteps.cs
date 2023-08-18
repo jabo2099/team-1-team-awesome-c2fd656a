@@ -11,6 +11,7 @@ namespace DotNetExample.Tests.Steps
     public class MoveSteps
     {
         GameController testObj = new GameController();
+        
         int startX, startY;
         GameController.DIRECTION direction;
         Point currentPosition;
@@ -18,6 +19,8 @@ namespace DotNetExample.Tests.Steps
         [Given(@"the character starts at position with XCoordinates (.*)")]
         public void givenTheCharacterStartsAtX(int startX)
         {
+            testObj.StartGame();
+            testObj._character.SetMap(new GameMap());
             this.startX = startX;
         }
 

@@ -5,7 +5,7 @@ namespace levelup
     public class GameController
     {
         public readonly string DEFAULT_CHARACTER_NAME = "TEAM AWESOME";
-        Character _character;
+        public Character _character;
 
         public record struct GameStatus(
             // TODO: Add other status data
@@ -26,9 +26,9 @@ namespace levelup
         {
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
-            status.currentPosition = new Point(-1,-1);
+            status.currentPosition = new Point(0,0);
             //TODO: Write a failing unit test that will force you to set this to the right number
-            status.moveCount = -100;
+            status.moveCount = 0;
         }
 
         // Pre-implemented to demonstrate ATDD
