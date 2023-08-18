@@ -25,7 +25,9 @@ public class Character
         SetMap(map);
         SetPosition(_map.GetStartingPosition());
     }
-
+    public void SetMoveCount(int moveCount){
+        this._moveCount = moveCount;
+    }
     public void SetMap(GameMap map){
         this._map = map;
     }

@@ -47,7 +47,8 @@ namespace DotNetExample.Tests.Steps
             testObj.SetCharacterPosition(new Point(this.startX, this.startY));
             testObj.Move(this.direction);
             GameController.GameStatus status = testObj.GetStatus();
-            this.currentPosition = status.currentPosition;
+            //this.currentPosition = status.currentPosition;
+            this.currentPosition = new Point(status.currentPosition.X, status.currentPosition.Y) ;
         }
 
         [Then(@"the character is now at position with XCoordinates (.*)")]

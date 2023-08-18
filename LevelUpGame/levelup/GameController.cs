@@ -58,7 +58,7 @@ namespace levelup
             {
                 _character = new Character(this.status.characterName);
             }
-            
+
             _character.EnterMap(new GameMap());
 
         }
@@ -73,18 +73,20 @@ namespace levelup
             //TODO: Implement move - should call something on another class
             //TODO: Should probably also update the game status
             _character.Move(directionToMove);
+            SetCharacterPosition(_character.GetPosition().Coordinates);
             SetCurrentMoveCount(_character.GetMoveCount());
         }
 
         public void SetCharacterPosition(Point coordinates)
         {
-            //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+            status.currentPosition = new Point(coordinates.X, coordinates.Y);
         }
 
         public void SetCurrentMoveCount(int moveCount)
         {
             //TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
             status.moveCount = moveCount;
+            _character.SetMoveCount(moveCount);
 
         }
 
