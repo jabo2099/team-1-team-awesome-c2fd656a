@@ -37,6 +37,20 @@ namespace levelup
         }
 
         [Test]
+        public void ArePositionsWithNonDefaultValues()
+        {
+            var myStartingPos = new Position(1,1);
+            var testObj2 = new GameMap(myStartingPos, 5, 8); 
+
+            Assert.IsNotNull(testObj2.GetPositions());
+            Assert.AreEqual(myStartingPos.Coordinates.X, testObj2.GetStartingPosition().Coordinates.X);
+            Assert.AreEqual(myStartingPos.Coordinates.Y, testObj2.GetStartingPosition().Coordinates.Y);
+            Assert.AreEqual(5, testObj2.GetPositions().GetLength(0));
+            Assert.AreEqual(8, testObj2.GetPositions().GetLength(1));
+        }
+
+
+        [Test]
         public void CalculatePositionWithValidMove()
         {
             var start = new Position(1,1);
